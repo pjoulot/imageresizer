@@ -1,0 +1,12 @@
+<?php
+
+use Drupal\image\Entity\ImageStyle;
+
+function imageresizer_preprocess_page(&$variables) {
+    $converter = \Drupal::service('imageresizer.converter');
+    
+    $image_style = ImageStyle::load('medium');
+    $string = $converter->getImageResizerString($image_style);
+//     var_dump($string);
+//     die();
+}

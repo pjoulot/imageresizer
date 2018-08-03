@@ -1,0 +1,5 @@
+name: Image Resizer
+type: module
+description: 'Allow to translate drupal image styles into an Image Resizer string'
+version: VERSION
+core: 8.x
