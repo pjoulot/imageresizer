@@ -31,7 +31,7 @@ class ImageResizerConverter {
         $configuration= $effect->getConfiguration();
         $transform_infos = [];
         if (!empty($configuration['id'])) {
-          $existing_mode = !empty($transform_infos['mode']) ? $transform_infos['mode'] : NULL;
+          $existing_mode = !empty($infos['mode']) ? $infos['mode'] : NULL;
           $transform_infos['mode'] = $this->extractEffectMode($existing_mode, $configuration['id']);
         }
         if (!empty($configuration['data'])) {
@@ -95,8 +95,10 @@ class ImageResizerConverter {
             break;
           case 'anchor':
             $infos['anchor'] = $this->getAnchorValue($property);
+            break;
           case 'extension':
             $infos['format'] = $this->getFormatValue($property);
+            break;
           default:
             $infos[$property_name] = $property;
             break;
