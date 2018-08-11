@@ -63,7 +63,7 @@ class ImageResizerConverter {
           break;
 
         case 'image_resize':
-          $mode = 'pad';
+          $mode = 'stretch';
           break;
 
         case 'image_rotate' || 'image_convert':
