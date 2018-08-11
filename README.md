@@ -1,4 +1,4 @@
-# imageresizer
+# Image Resizer
 
 This Drupal module is there to convert Drupal Image style into the [ImageResizer](https://imageresizing.net/docs/basics) format which is a string.
 
