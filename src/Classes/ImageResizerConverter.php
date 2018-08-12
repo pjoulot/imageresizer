@@ -10,14 +10,16 @@ use Drupal\image\Entity\ImageStyle;
 class ImageResizerConverter {
 
     public $imageStyle;
+    public $supportedFormat;
 
-    const SUPPORTED_FORMATS = ['jpg', 'png', 'gif'];
+    const DEFAULT_SUPPORTED_FORMATS = ['jpg', 'png', 'gif'];
 
     /**
      * Constructs a new ImageResizerConverter object.
      */
-    public function __construct(ImageStyle $image_style) {
+    public function __construct(ImageStyle $image_style, $supported_format = NULL) {
         $this->imageStyle = $image_style;
+        $this->supportedFormat = !empty($supported_format) ? $supported_format : DEFAULT_SUPPORTED_FORMATS;
     }
 
     /**
@@ -108,7 +110,7 @@ class ImageResizerConverter {
     }
 
     public function getFormatValue($value) {
-      return in_array($value, SUPPORTED_FORMATS) ? $value : 'jpg';
+      return in_array($value, $this->supportedFormat) ? $value : 'jpg';
     }
 
     public function getAnchorValue($value) {

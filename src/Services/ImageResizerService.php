@@ -29,9 +29,11 @@ class ImageResizerService {
    * 
    * @param \Drupal\image\Entity\ImageStyle $image_style
    *   Drupal image style.
+   * @param array $supported_format
+   *   The supported format (ex: [jpg, png, gif]).
    */
-  public function getImageResizerString(ImageStyle $image_style) {
-    $converter = new ImageResizerConverter($image_style);
+  public function getImageResizerString(ImageStyle $image_style, array $supported_format = []) {
+    $converter = new ImageResizerConverter($image_style, $supported_format);
     return $converter->convert();
   }
 }
